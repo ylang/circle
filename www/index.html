@@ -4,10 +4,12 @@
 	<title></title>
 	<meta charset="UTF-8">
 	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1737700380" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
+	<script  charset="utf-8">
 		var status = WB2.checkLogin();
 		alert(status);
+		console.log("login status : " + status);
 		if (status === false) {
+			console.log("tring log in");
 			WB2.login(function() {
    				var status2 = WB2.checkLogin();
 				alert(status2);
