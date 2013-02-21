@@ -1,2 +1,0 @@
-serviceClass: com.powfans.client.GreetingService
-path: 615F10E91A20FFCF0D4211D6F23AD59B.gwt.rpc
