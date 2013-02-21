@@ -5,7 +5,8 @@
     "express": "3.0.3",
     "mime": "1.2.7",
     "mongoose": "3.4.0",
-    "emailjs" : "0.3.4"
+    "emailjs" : "0.3.4",
+    "passport-weibo" : "0.0.1"
   },
   "engines": {
     "node": "0.8.x",

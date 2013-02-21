@@ -7,8 +7,8 @@ function init() {
     var app = express();
     configureExpress(app);
     mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/myApp');
-    http.createServer(app).listen(process.env.PORT || 91419, function() {
-        console.log("Express server listening on port %d", process.env.PORT || 91419);
+    http.createServer(app).listen(process.env.PORT || 18419, function() {
+        console.log("Express server listening on port %d", process.env.PORT || 18419);
     });
 
 
