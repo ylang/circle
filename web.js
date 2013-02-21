@@ -1,10 +1,12 @@
 var path = require('path');
 var express = require('express');
 var http = require('http');
+var mongoose = require('mongoose');
 console.log("hello");
 function init() {
     var app = express();
     configureExpress(app);
+    mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/myApp');
     http.createServer(app).listen(process.env.PORT || 91419, function() {
         console.log("Express server listening on port %d", process.env.PORT || 91419);
     });
