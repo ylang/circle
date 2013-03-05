@@ -1,3 +1,0 @@
-# Module weibopowfans
-# RPC service class, partial path of RPC policy file
-com.powfans.client.GreetingService, 615F10E91A20FFCF0D4211D6F23AD59B.gwt.rpc

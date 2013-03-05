@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en-EN">
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1737700380" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var status = WB2.checkLogin();
+		alert(status);
+		if (status === false) {
+			WB2.login(function() {
+   				var status2 = WB2.checkLogin();
+				alert(status2);
+			});
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>
