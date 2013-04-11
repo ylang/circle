@@ -7,8 +7,10 @@ function init() {
     var app = express();
     configureExpress(app);
     mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/myApp');
-    http.createServer(app).listen(process.env.PORT || 91419, function() {
-        console.log("Express server listening on port %d", process.env.PORT || 91419);
+    require('./circleRoutes')(app);
+
+    http.createServer(app).listen(process.env.PORT || 10086, function() {
+        console.log("Express server listening on port %d", process.env.PORT || 10086);
     });
 
 
@@ -23,6 +25,7 @@ function configureExpress(app) {
 
         app.use(express.cookieParser('your secret here'));
         app.use(express.session());
+        app.use(express.query());
 
         app.use(app.router);
         app.use(express["static"](__dirname + "/www/"));
