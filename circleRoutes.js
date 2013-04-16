@@ -35,32 +35,53 @@ module.exports = function (app) {
      *
      */
     app.post('/circle/create', function(req, res) {
-        console.log("CIRCLE: GET /circle/create");
-        var circle = new circle({
-            name:req.body.name,
-            detail: req.body.detail,
-            gossipIds: new Array(),
-            gossipCnt: 0,
-            followerCnt: 1,
-            date: new Date()
-        });
-        circle.save(function(err) {
-            if (err) {
-                console.log("ERR CIRCLE creating new circle:" + err);
-                res.status = 500;
+        console.log("CIRCLE: POST /circle/create");
+        if (req.body.name == null || req.body.name === "") {
+            console.log("CIRCLE: name not specified");
+            res.status = 401;
+            res.send({
+                    status: 'fail',
+                    error: 'name not specified'
+            });
+            return;
+        }
+
+        Circle.findOne({ name: req.body.name}, function (err, circle) {
+            if (circle !== null) {
+                console.log("ERR CIRCLE: circle with same name exists.");
+                res.status = 401;
                 res.send({
                     status: 'fail',
-                    error: err
+                    error: 'name duplicated'
                 });
-                return;
+            } else {
+                var circle = new circle({
+                    name:req.body.name,
+                    detail: req.body.detail,
+                    gossipIds: new Array(),
+                    gossipCnt: 0,
+                    followerCnt: 1,
+                    date: new Date()
+                });
+                circle.save(function(err) {
+                    if (err) {
+                        console.log("ERR CIRCLE creating new circle:" + err);
+                        res.status = 500;
+                        res.send({
+                            status: 'fail',
+                            error: err
+                        });
+                        return;
+                    }
+                    console.log("DEBUG CIRCLE circle saved.");
+                    console.log(circle);
+                    res.status = 200;
+                    res.json({
+                        status: 'success',
+                        circle: circle
+                    });
+                });
             }
-            console.log("DEBUG CIRCLE circle saved.");
-            console.log(circle);
-            res.status = 200;
-            res.json({
-                status: success,
-                circle: circle
-            })
         });
     });
 }

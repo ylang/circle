@@ -6,7 +6,8 @@
     "mime": "1.2.7",
     "mongoose": "3.4.0",
     "emailjs" : "0.3.4",
-    "wechat" : "0.3.5"
+    "wechat" : "0.3.5",
+    "should" : "1.2.2"
   },
   "engines": {
     "node": "0.8.x",
