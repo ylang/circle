@@ -1,10 +1,13 @@
-# A Circle project back-end
+# A Circle project contains both an Android client-side app and a nodejs back-end server
 
-#API entey point
+#Server API entey point
 ##circle
 	*	GET /circle/get/all?p=:page
 respond: {[circles], more}
 10 ids are return each time.
+	* POST /circle/create
+entity: {name: name, detail: detail}
+response: {circle: circle}
 
 #db schema
 
