@@ -5,7 +5,7 @@
 	*	GET /circle/get/all?p=:page
 respond: {[circles], more}
 10 ids are return each time.
-	* POST /circle/create
+	*	POST /circle/create
 entity: {name: name, detail: detail}
 response: {circle: circle}
 
