@@ -1,6 +1,6 @@
 # A Circle project contains both an Android client-side app and a nodejs back-end server
 
-#Server API entey point
+#Server API entry point
 ##circle
 ###Fetch all circles
 	*	GET /circle/get/all?p=:page
