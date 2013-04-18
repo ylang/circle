@@ -7,7 +7,7 @@ module.exports = function (app) {
         console.log("CIRCLE: GET /circle/get/all");
         console.log("page = " + req.query.p);
         Circle.find({
-        }, 'id name gossipCnt followerCnt', {
+        }, 'id name detail gossipCnt followerCnt date', {
             sort: [
                 ['gossipCnt', 1]
             ],
@@ -36,6 +36,7 @@ module.exports = function (app) {
      */
     app.post('/circle/create', function(req, res) {
         console.log("CIRCLE: POST /circle/create");
+        console.log(req.body);
         if (req.body.name == null || req.body.name === "") {
             console.log("CIRCLE: name not specified");
             res.status = 401;
@@ -55,7 +56,7 @@ module.exports = function (app) {
                     error: 'name duplicated'
                 });
             } else {
-                var circle = new circle({
+                var circle = new Circle({
                     name:req.body.name,
                     detail: req.body.detail,
                     gossipIds: new Array(),
