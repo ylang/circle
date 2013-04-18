@@ -2,9 +2,11 @@
 
 #Server API entey point
 ##circle
+###Fetch all circles
 	*	GET /circle/get/all?p=:page
 respond: {[circles], more}
 10 ids are return each time.
+###Create a new circle
 	*	POST /circle/create
 entity: {name: name, detail: detail}
 response: {circle: circle}
