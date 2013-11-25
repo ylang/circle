@@ -1,4 +1,4 @@
-var Circle = require('./Circle');
+var Circle = require('./model/Circle');
 
 module.exports = function (app) {
     var NUM_PER_PAGE = 10;
